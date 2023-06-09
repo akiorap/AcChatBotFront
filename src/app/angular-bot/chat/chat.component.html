@@ -13,8 +13,9 @@
         <div *ngIf="message?.role?.label != 'system'" class="chat-item"
              [ngClass]="{'right' : message?.role?.label === 'user', 'left': message?.role?.label == 'assistant'}">
           <!--<img id="avatar" [src]="item?.user?.profileImageUrl">-->
-          <p id="message-body">{{message?.content}}</p>
+          <p class="message-body">{{message?.content}}</p>
         </div>
+
       </div>
     </div>
     <div class="chat-footer">
@@ -27,7 +28,7 @@
  </div>
  <div class="caption">
 
-  <select id="context-area" [(ngModel)]="area" (click)="setArea()" >
+  <select id="context-area" class="form-control" [(ngModel)]="area" (click)="setArea()" >
     <option value="login">Login</option>
     <option value="meetings">Meetings</option>
     <option value="sm">Secure Messages</option>

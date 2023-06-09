@@ -11,8 +11,8 @@ import { BotResponse, ChatMessage } from '../BotModels';
 export class ChatComponent implements OnInit {
 
   userPrompt: string = "";
-  botResponse: BotResponse = {} ; // = this.chatService.getBotAnswer("login");
-  //botResponse = this.chatService.getBotAnswer("login");
+  botResponse: BotResponse = {} ; 
+
   area = "login";
   messages: ChatMessage[] = [];
   
@@ -37,15 +37,6 @@ export class ChatComponent implements OnInit {
     this.list?.nativeElement.scrollTo({top: maxScroll, behavior: 'smooth'});
   }
 
-  sendMessage() {
-    console.log("Message: " );
-    this.chatService.getBotAnswer(this.area);
-    this.userPrompt = '';
-  }
-  sendMessage2() {
-    console.log("Message: " + this.userPrompt)
-    
-  }
   send() {
     console.log("Sending Message: " + this.userPrompt);
 
@@ -60,11 +51,11 @@ export class ChatComponent implements OnInit {
     //this.area = val;
     this.botResponse.previousMessages = [];
     console.log(this.area);
-
+    this.userPrompt = "";
     this.chatService.getBotAnswer(this.area,this.userPrompt, this.botResponse.previousMessages).subscribe(data => {
       this.botResponse = data;
     });
-    
+
   }
 
   clearConversation() {}
