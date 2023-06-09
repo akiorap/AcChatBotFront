@@ -1,0 +1,2 @@
+C:\Users\Alex Kiorapostolou\source\AcChatBotFront\obj\Debug\AcChatBotFront.esproj.SuggestedBindingRedirects.cache
+C:\Users\Alex Kiorapostolou\source\AcChatBotFront\obj\Debug\AcChatBotFront.esproj.CoreCompileInputs.cache
