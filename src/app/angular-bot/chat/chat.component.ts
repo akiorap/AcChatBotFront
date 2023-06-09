@@ -46,7 +46,7 @@ export class ChatComponent implements OnInit {
     console.log("Message: " + this.userPrompt)
     
   }
-  send =() => {
+  send() {
     console.log("Sending Message: " + this.userPrompt);
 
     this.chatService.getBotAnswer(this.area,this.userPrompt, this.botResponse.previousMessages).subscribe(data => {
@@ -55,6 +55,16 @@ export class ChatComponent implements OnInit {
  
     this.userPrompt = ""
     this.scrollToBottom()
+  }
+  setArea() {
+    //this.area = val;
+    this.botResponse.previousMessages = [];
+    console.log(this.area);
+
+    this.chatService.getBotAnswer(this.area,this.userPrompt, this.botResponse.previousMessages).subscribe(data => {
+      this.botResponse = data;
+    });
+    
   }
 
   clearConversation() {}

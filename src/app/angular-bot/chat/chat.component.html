@@ -1,25 +1,4 @@
 
-
-<!-- messages
-<div class="message from">
-   hello
-</div>  
-
-<ng-container *ngFor="let message of botResponse.PreviousMessages">
-  
-  <div class="message" *ngIf="message.role.label != 'system'"
-       [ngClass]="{ 'from': message.role.label === 'assistant', 'to': message.role.label === 'user' }">
-    {{ message.content }}
-  </div>
-</ng-container>
-
-<label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
-<input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
-<button (click) ="sendMessage2()">Send</button>
-<ng-template #dialogInfo>
-  <span [className]="'float-right'">Total messages: {{messages.length}}</span>
-</ng-template>
--->
 <div class="caption">
   <img decoding="async" id="thumbnail"
        src="https://media.istockphoto.com/photos/3d-illustration-of-virtual-human-on-technology-background-picture-id1181533674?s=612x612">
@@ -32,7 +11,7 @@
       <div *ngFor="let message of botResponse.previousMessages">
        
         <div *ngIf="message?.role?.label != 'system'" class="chat-item"
-             [ngClass]="{'right' : message?.role?.label == 'user', 'left': message?.role?.label != 'assistant'}">
+             [ngClass]="{'right' : message?.role?.label === 'user', 'left': message?.role?.label == 'assistant'}">
           <!--<img id="avatar" [src]="item?.user?.profileImageUrl">-->
           <p id="message-body">{{message?.content}}</p>
         </div>
@@ -47,7 +26,15 @@
   </div>
  </div>
  <div class="caption">
+
+  <select id="context-area" [(ngModel)]="area" (click)="setArea()" >
+    <option value="login">Login</option>
+    <option value="meetings">Meetings</option>
+    <option value="sm">Secure Messages</option>
+    <option value="signing">Signing</option>
+  </select>
+<!-- 
   <button id="clear-button" (click)="clearConversation()" >
     clear conversation
-  </button>
+  </button> -->
  </div>
