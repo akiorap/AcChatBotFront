@@ -26,15 +26,12 @@
   <h1>Welcome, visitor!</h1>
   <h1>I am an AI Chat-bot developed by <a href="#">HasBotAI</a></h1>
  </div>
-
- {{botResponse.lastMessage}}
  <div class="container">
   <div class="card">
-    <div class="chat-list" #chatListContainer> {{botResponse.lastMessage}}
-      <div *ngFor="let message of botResponse.PreviousMessages">
- {{botResponse.lastMessage}}
- {{message.content}}ssssssssssss
-        <div class="chat-item"
+    <div class="chat-list" #chatListContainer> 
+      <div *ngFor="let message of botResponse.previousMessages">
+       
+        <div *ngIf="message?.role?.label != 'system'" class="chat-item"
              [ngClass]="{'right' : message?.role?.label == 'user', 'left': message?.role?.label != 'assistant'}">
           <!--<img id="avatar" [src]="item?.user?.profileImageUrl">-->
           <p id="message-body">{{message?.content}}</p>

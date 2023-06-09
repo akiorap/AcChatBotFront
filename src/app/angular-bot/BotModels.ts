@@ -17,5 +17,5 @@ export interface Role {
 
 export interface BotResponse {
   lastMessage?: string;
-  PreviousMessages?: ChatMessage[];
+  previousMessages?: ChatMessage[];
 }

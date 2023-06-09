@@ -47,9 +47,9 @@ export class ChatComponent implements OnInit {
     
   }
   send =() => {
-    console.log("Message: " + this.userPrompt);
+    console.log("Sending Message: " + this.userPrompt);
 
-    this.chatService.getBotAnswer(this.area,this.userPrompt).subscribe(data => {
+    this.chatService.getBotAnswer(this.area,this.userPrompt, this.botResponse.previousMessages).subscribe(data => {
       this.botResponse = data;
     });
  

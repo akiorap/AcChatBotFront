@@ -39,7 +39,8 @@ export class ChatService {
 
     let requestBody: BotRequest = {
         Area: area,
-        PreviousMessages:previousMessages
+        UserPrompt:msg
+,       PreviousMessages:previousMessages
     };
 
     //requestBody.UserPrompt = "Hi";
